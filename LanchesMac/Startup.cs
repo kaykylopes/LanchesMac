@@ -29,17 +29,21 @@ namespace LanchesMac
         public void ConfigureServices(IServiceCollection services)
         {
             // services.AddDbContext<AppDbContext>(options)
-                 services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaulConnection")));
+                 services.AddDbContext<AppDbContext>(options =>
+                 options.UseSqlServer(Configuration.GetConnectionString("DefaulConnection")));
 
-            services.AddTransient<ILancheRepository, LancheRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<ILancheRepository, LancheRepository>();            
             //fornece uma instancia de HttpContextAcessor
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            //services.AddHttpContextAccessor();
 
             //cria um objeto Scoped, ou seja um objeto que esta associado a requisição
             //isso significa que se duas pessoas solicitarem o objeto CarrinhoCompra ao  mesmo tempo
             //elas vão obter instâncias diferentes
             services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
+            services.AddMvc();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -49,7 +53,7 @@ namespace LanchesMac
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 
         }
