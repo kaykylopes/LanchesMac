@@ -44,6 +44,9 @@ namespace LanchesMac
             //elas vão obter instâncias diferentes
             services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
             services.AddMvc();
+            //
+            services.AddMemoryCache();
+            services.AddSession();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

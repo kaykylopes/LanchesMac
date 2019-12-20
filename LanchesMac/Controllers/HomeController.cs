@@ -5,34 +5,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LanchesMac.Models;
+using LanchesMac.Repositories;
+using LanchesMac.ViewModels;
 
 namespace LanchesMac.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILancheRepository _lancheRepository;
+
+        public HomeController(ILancheRepository lancheRepositorio)
+        {
+            _lancheRepository = lancheRepositorio;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var homeViewModel = new HomeViewModel
+            {
+                LanchesPreferidos = _lancheRepository.LanchesPreferidos
+            };
+
+            return View(homeViewModel);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+       
 
        
     }
