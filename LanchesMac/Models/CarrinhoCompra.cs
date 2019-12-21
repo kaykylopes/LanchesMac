@@ -11,7 +11,7 @@ namespace LanchesMac.Models
 {
     public class CarrinhoCompra
     {
-        public readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public CarrinhoCompra(AppDbContext context)
         {
