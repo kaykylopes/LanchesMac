@@ -33,7 +33,8 @@ namespace LanchesMac
                  options.UseSqlServer(Configuration.GetConnectionString("DefaulConnection")));
 
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-            services.AddTransient<ILancheRepository, LancheRepository>();            
+            services.AddTransient<ILancheRepository, LancheRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
             //fornece uma instancia de HttpContextAcessor
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
