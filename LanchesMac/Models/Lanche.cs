@@ -9,12 +9,25 @@ namespace LanchesMac.Models
     public class Lanche
     {
         public int LancheId { get; set; }
-        [StringLength(100)]
+
+        [Required]
+        [Display(Name = "Informe o nome")]
+        [StringLength(80, MinimumLength = 10)]
         public string Nome { get; set; }
-        [StringLength(100)]
+
+
+        [Required]
+        [MinLength(20)]
+        [MaxLength(200)]
         public string DescricaoCurta { get; set; }
-        [StringLength(250)]
+
+
+        [Required]
+        [MinLength(20)]
+        [MaxLength(200)]
         public string DescricaoDetalhada { get; set; }
+
+
         public decimal Preco { get; set; }
         [StringLength(200)]
         public string ImageUrl { get; set; }

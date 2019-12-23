@@ -74,14 +74,22 @@ namespace LanchesMac
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            /*app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseSession();*/
+            app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
+
+                routes.MapRoute(
+                    name: "filtrarPorCategoria",
+                    template: "Lanche/{action}/{categoria}",
+                    defaults: new {Controller="Lanche", action="List"}); 
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
