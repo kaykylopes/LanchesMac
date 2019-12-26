@@ -19,9 +19,9 @@ namespace LanchesMac.Controllers
         }
 
        // [Authorize]
-        public IActionResult Checkout()
+        public IActionResult Checkout() 
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
