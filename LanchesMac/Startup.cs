@@ -38,6 +38,9 @@ namespace LanchesMac
                   .AddDefaultTokenProviders();
 
 
+            services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AcessDanied");
+
+
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<ILancheRepository, LancheRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();

@@ -29,8 +29,10 @@ namespace LanchesMac.Controllers
             return View(homeViewModel);
         }
 
-       
+       public ViewResult AcessDanied()
+        {
+            return View();
+        }
 
-       
     }
 }
