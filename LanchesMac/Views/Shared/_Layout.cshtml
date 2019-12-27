@@ -35,6 +35,7 @@
                     <li><a asp-controller="Contato" asp-action="Index">Contato</a></li>
                     @await Component.InvokeAsync("CarrinhoCompraResumo")
                 </ul>
+                @await Html.PartialAsync("_LoginPartial"); 
                 <form class="navbar-form navbar-right" asp-controller="Lanche" asp-action="Search" method="get">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Procurar lanche" name="searchString" value="@ViewData["searchString"]">
