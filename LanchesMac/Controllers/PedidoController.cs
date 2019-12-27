@@ -18,14 +18,14 @@ namespace LanchesMac.Controllers
             _carrinhoCompra = carrinhoCompra;
         }
 
-       // [Authorize]
+        [Authorize]
         public IActionResult Checkout() 
         {
             return View(); 
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public IActionResult Checkout(Pedido pedido)
         {
             var items = _carrinhoCompra.GetCarrinhoCompraItens();
